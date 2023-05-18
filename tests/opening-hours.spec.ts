@@ -5,12 +5,14 @@ import {
   onePeriodPerEveryDay,
 } from '../mocks/openingHours';
 
+const BASE_TEST_URL = 'http://localhost:3030'
+
 const beforeEach = async (page: Page, response: Record<string, unknown>): Promise<void> => {
-  await page.route('http://localhost:3000/data.json', async route => {
+  await page.route(`${BASE_TEST_URL}/data.json`, async route => {
     await route.fulfill({ json: { ...response } });
   });
 
-  await page.goto('http://localhost:3000/');
+  await page.goto(BASE_TEST_URL);
 }
 
 test.describe('Should test the openings app', () => {
