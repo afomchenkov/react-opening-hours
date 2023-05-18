@@ -7,7 +7,9 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "react-scripts test",
-    "test:watch": "react-scripts test --watchAll --coverage"
+    "test:watch": "react-scripts test --watchAll --coverage",
+    "test:e2e": "npx playwright test",
+    "test:e2e:debug": "npx playwright test --ui"
   },
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",

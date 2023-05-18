@@ -27,8 +27,8 @@ describe('DayInfo test', () => {
   });
 
   test('should show time period and no Closed label if has opening period', () => {
-    const [,testDayThuesday] = dayWithTimes;
-    render(<DayInfo dayOpenings={testDayThuesday} today={DayOfWeek.Monday} />);
+    const [,testDayTuesday] = dayWithTimes;
+    render(<DayInfo dayOpenings={testDayTuesday} today={DayOfWeek.Monday} />);
     expect(() => screen.getByTestId('closed')).toThrow('Unable to find an element');
     const openCloseTime = screen.getByTestId('open-close-time');
     expect(openCloseTime.textContent).toBe('10 AM - 6 PM');
