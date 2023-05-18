@@ -8,6 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install
 npx playwright install
 npm start
+
+NB: if any issues arise during the installation like unresolved dependencies tree error, use the following command:
+npm install --force
 ```
 
 ## To run tests
