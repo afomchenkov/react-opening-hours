@@ -1,3 +1,4 @@
+import { describe, expect } from '@jest/globals';
 import { parseOpeningHours, secondsToLocaleTime } from '../';
 import { DayOfWeek, DayOpenings } from '../../types';
 import {

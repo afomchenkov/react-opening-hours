@@ -12,14 +12,14 @@ const renderOpenCloseTime: (times: OpenClosePair[]) => ReactElement[] =
         <div
           key={openCloseTime}
           className='day-info--open-close-time'
-          data-test-id='open-close-time'>
+          data-testid='open-close-time'>
           {openCloseTime}
         </div>
       );
     });
 
 const renderClosed = (): ReactElement => {
-  return <div className='day-info--closed' data-test-id='closed'>Closed</div>;
+  return <div className='day-info--closed' data-testid='closed'>Closed</div>;
 }
 
 type DayInfoProps = {
@@ -32,13 +32,13 @@ const DayInfo: FC<DayInfoProps> = ({ dayOpenings, today }) => {
   const isToday = today === day;
 
   return (
-    <div className='day-info'>
+    <div className='day-info' data-testid='day-info'>
       <div className='day-info--day-name'>
         {capitalise(day)}
       </div>
 
       {isToday &&
-        <div className='day-info--today' data-test-id='today'>TODAY</div>
+        <div className='day-info--today' data-testid='today'>TODAY</div>
       }
 
       <div className='day-info--open-time'>

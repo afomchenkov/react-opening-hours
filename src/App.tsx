@@ -1,9 +1,10 @@
 import { useFetch } from './hooks';
+import { OpeningHoursDto } from './types';
 import OpeningHours from './components/opening-hours/OpeningHours';
 import './App.scss';
 
 const App = () => {
-  const { response: schedule, isLoading } = useFetch<any>('data.json');
+  const { response: schedule, isLoading } = useFetch<OpeningHoursDto>('data.json');
 
   if (isLoading || !schedule) {
     return null

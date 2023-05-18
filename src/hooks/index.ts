@@ -15,14 +15,14 @@ const DEFAULT_OPTIONS = {
 
 export const dispatchRequest = async <T>(
   url: string,
-  options: any = DEFAULT_OPTIONS
+  options: Record<string, unknown> = DEFAULT_OPTIONS
 ): Promise<T> => {
   const request = new Request(url, options);
   const response = await fetch(request);
   return await response.json() as T;
 };
 
-export const useFetch = <T>(url: string, options?: any) => {
+export const useFetch = <T>(url: string, options?: Record<string, unknown>) => {
   const [response, setResponse] = useState<T | null>(null);
   const [error, setError] = useState<Error | unknown | null>(null);
   const [isLoading, setIsLoading] = useState(false);

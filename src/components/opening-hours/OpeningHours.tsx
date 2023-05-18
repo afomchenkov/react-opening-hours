@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { HiOutlineClock } from 'react-icons/hi';
-import { DayOpenings } from '../../types';
+import { DayOpenings, OpeningHoursDto } from '../../types';
 import { useOpeningHours } from '../../hooks';
 import DayInfo from '../day-info/DayInfo';
 import './OpeningHours.scss';
 
 type OpeningHoursProps = {
-  data: any
+  data: OpeningHoursDto
 }
 
 const OpeningHours: FC<OpeningHoursProps> = ({ data }) => {
@@ -24,7 +24,6 @@ const OpeningHours: FC<OpeningHoursProps> = ({ data }) => {
       {daysWithOpenings.map((dayOpenings: DayOpenings) =>
         <DayInfo
           key={dayOpenings.day}
-          data-test-id='day-line'
           dayOpenings={dayOpenings}
           today={today}
         />
