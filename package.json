@@ -9,7 +9,8 @@
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --coverage",
     "test:e2e": "npx playwright test",
-    "test:e2e:debug": "npx playwright test --ui"
+    "test:e2e:debug": "npx playwright test --ui",
+    "test:e2e:report": "npx playwright show-report"
   },
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
