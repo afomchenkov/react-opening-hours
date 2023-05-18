@@ -1,0 +1,29 @@
+.opening-hours {
+  width: 450px;
+  min-height: 490px;
+  padding: 45px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: var(--background-color-main);
+  box-shadow: 1px 1px 4px 4px var(--box-shadow-color);
+  cursor: default;
+
+  &--header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+    font-size: 30px;
+    font-weight: var(--font-weight-3);
+
+    &-icon {
+      margin-right: 14px;
+      color: var(--text-color-secondary);
+      vertical-align: bottom;
+    }
+
+    &-title {
+      line-height: 24px;
+    }
+  }
+}
