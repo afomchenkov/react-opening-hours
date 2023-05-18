@@ -1,33 +1,40 @@
 
 import { FC, ReactElement } from 'react';
-import { DayOfWeek, dayToStringMap, DayWithTimes, OpenClosePair } from '../../types';
-import { secondsToTime } from '../../utils';
+import { DayOfWeek, DayOpenings, OpenClosePair } from '../../types';
+import { secondsToLocaleTime, capitalise } from '../../utils';
 import './DayInfo.scss';
-
-type DayInfoProps = {
-  dayWithTimes: DayWithTimes,
-  todaysDay: DayOfWeek,
-};
 
 const renderOpenCloseTime: (times: OpenClosePair[]) => ReactElement[] =
   (times) =>
     times.map(([open, close]: OpenClosePair) => {
-      const period: string = `${secondsToTime(open)} - ${secondsToTime(close)}`;
-      return <div key={period} className='day-info_period' data-test-id='period'>{period}</div>;
+      const openCloseTime: string = `${secondsToLocaleTime(open)} - ${secondsToLocaleTime(close)}`;
+      return (
+        <div
+          key={openCloseTime}
+          className='day-info--open-close-time'
+          data-test-id='open-close-time'>
+          {openCloseTime}
+        </div>
+      );
     });
 
 const renderClosed = (): ReactElement => {
-  return <div className='day-info_closed' data-test-id='closed'>Closed</div>;
+  return <div className='day-info--closed' data-test-id='closed'>Closed</div>;
 }
 
-const DayInfo: FC<DayInfoProps> = ({ dayWithTimes, todaysDay }) => {
-  const { day, times } = dayWithTimes;
-  const isToday = todaysDay === day;
+type DayInfoProps = {
+  dayOpenings: DayOpenings,
+  today: DayOfWeek,
+};
+
+const DayInfo: FC<DayInfoProps> = ({ dayOpenings, today }) => {
+  const { day, times } = dayOpenings;
+  const isToday = today === day;
 
   return (
     <div className='day-info'>
       <div className='day-info--day-name'>
-        {dayToStringMap.get(day)}
+        {capitalise(day)}
       </div>
 
       {isToday &&

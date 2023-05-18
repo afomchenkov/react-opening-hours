@@ -20,7 +20,16 @@
     font-weight: var(--font-weight-1);
   }
 
-  &_period {
+  &--today {
+    flex-grow: 1;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: var(--font-weight-3);
+    line-height: 12px;
+    color: var(--text-color-today);
+  }
+
+  &--open-close-time {
     height: 16px;
 
     &:not(:first-child) {
@@ -32,16 +41,7 @@
     }
   }
 
-  &_closed {
-    color: var(--text-color-closed);
-  }
-
-  &--today {
-    flex-grow: 1;
-    padding-left: 20px;
-    font-size: 16px;
-    font-weight: var(--font-weight-3);
-    line-height: 12px;
-    color: var(--text-color-today);
+  &--closed {
+    color: var(--text-color-secondary);
   }
 }
