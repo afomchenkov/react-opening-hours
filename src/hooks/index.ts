@@ -6,6 +6,16 @@ import {
   OpeningHoursDto,
 } from '../types';
 
+const DAYS_OF_WEEK_FROM_SUNDAY: DayOfWeek[] = [
+  DayOfWeek.Sunday,
+  DayOfWeek.Monday,
+  DayOfWeek.Tuesday,
+  DayOfWeek.Wednesday,
+  DayOfWeek.Thursday,
+  DayOfWeek.Friday,
+  DayOfWeek.Saturday,
+];
+
 const DEFAULT_OPTIONS = {
   headers: {
     'Content-Type': 'application/json',
@@ -52,9 +62,7 @@ type UseOpeningHours = (data: OpeningHoursDto) => {
 }
 
 export const useOpeningHours: UseOpeningHours = (data) => {
-  const days: DayOfWeek[] = Object.values(DayOfWeek);
-  const today = days[new Date().getDay()];
-
+  const today = DAYS_OF_WEEK_FROM_SUNDAY[new Date().getDay()];
   const parsedOpeningHours = useMemo(() => {
     const daysWithOpenings: DayOpenings[] = parseOpeningHours(data);
 
