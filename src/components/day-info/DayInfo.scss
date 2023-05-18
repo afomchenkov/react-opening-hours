@@ -1,0 +1,47 @@
+.day-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border-color-main);
+  font-size: 22px;
+  line-height: 16px;
+
+  &--day-name {
+    font-weight: var(--font-weight-2);
+  }
+
+  &--open-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: var(--font-weight-1);
+  }
+
+  &_period {
+    height: 16px;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    &:not(:last-child)::after {
+      content: ",";
+    }
+  }
+
+  &_closed {
+    color: var(--text-color-closed);
+  }
+
+  &--today {
+    flex-grow: 1;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: var(--font-weight-3);
+    line-height: 12px;
+    color: var(--text-color-today);
+  }
+}
