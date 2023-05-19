@@ -6,6 +6,32 @@ import {
   OpenClosePair,
 } from '../types';
 
+export const DAYS_OF_WEEK_FROM_SUNDAY: DayOfWeek[] = [
+  DayOfWeek.Sunday,
+  DayOfWeek.Monday,
+  DayOfWeek.Tuesday,
+  DayOfWeek.Wednesday,
+  DayOfWeek.Thursday,
+  DayOfWeek.Friday,
+  DayOfWeek.Saturday,
+];
+
+export const DEFAULT_OPTIONS = {
+  headers: {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+  },
+};
+
+export const dispatchRequest = async <T>(
+  url: string,
+  options: Record<string, unknown> = DEFAULT_OPTIONS
+): Promise<T> => {
+  const request = new Request(url, options);
+  const response = await fetch(request);
+  return await response.json() as T;
+};
+
 export const closePeriods = (data: OpeningHoursDto): OpeningHoursDto => {
   const days = Object.values(DayOfWeek);
   const daysWithClosedPeriods = { ...data };
