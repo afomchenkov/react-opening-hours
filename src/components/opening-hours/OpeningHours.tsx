@@ -10,7 +10,7 @@ type OpeningHoursProps = {
 }
 
 const OpeningHours: FC<OpeningHoursProps> = ({ data }) => {
-  const { today, daysWithOpenings } = useOpeningHours(data)
+  const { today, daysWithOpenings } = useOpeningHours(data);
 
   return (
     <div className='opening-hours'>

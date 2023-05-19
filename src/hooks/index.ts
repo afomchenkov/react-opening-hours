@@ -3,6 +3,8 @@ import {
   DAYS_OF_WEEK_FROM_SUNDAY,
   parseOpeningHours,
   dispatchRequest,
+  debugLog,
+  LogType,
 } from '../utils';
 import {
   DayOfWeek,
@@ -23,6 +25,7 @@ export const useFetch = <T>(url: string, options?: Record<string, unknown>) => {
         setResponse(response);
       } catch (error) {
         setError(error);
+        debugLog(JSON.stringify(error), LogType.Error);
       } finally {
         setIsLoading(false);
       }
@@ -43,6 +46,7 @@ export const useOpeningHours: UseOpeningHours = (data) => {
   const today = DAYS_OF_WEEK_FROM_SUNDAY[new Date().getDay()];
   const parsedOpeningHours = useMemo(() => {
     const daysWithOpenings: DayOpenings[] = parseOpeningHours(data);
+    debugLog(JSON.stringify(daysWithOpenings));
 
     return {
       today,
